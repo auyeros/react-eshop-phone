@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { storeProducts, detailProduct } from "./data";
-import { runInThisContext } from "vm";
 
 const ProductContext = React.createContext();
 
