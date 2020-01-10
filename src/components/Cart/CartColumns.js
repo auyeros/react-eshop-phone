@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function CartColumns() {
+const CartColumns = () => {
+    // export default function CartColumns() {
     return (
         <div className="container-fluid text-center d-none d-lg-block">
             <div className="row">
@@ -25,4 +26,6 @@ export default function CartColumns() {
             </div>
         </div>
     );
-}
+};
+
+export default CartColumns;

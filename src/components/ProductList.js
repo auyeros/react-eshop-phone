@@ -1,36 +1,31 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import Product from "./Product";
 import Title from "./Title";
 import { ProductConsumer } from "../context";
 
-export default class ProductList extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <div className="py-5">
-                    <div className="container">
-                        <Title name="our" title="products">
-                            {" "}
-                        </Title>
-                        <div className="row">
-                            <ProductConsumer>
-                                {value => {
-                                    return value.products.map(product => {
-                                        return (
-                                            <Product
-                                                key={product.id}
-                                                product={product}
-                                            >
-                                                {" "}
-                                            </Product>
-                                        );
-                                    });
-                                }}
-                            </ProductConsumer>
-                        </div>
+const ProductList = () => {
+    const { products } = useContext(ProductConsumer);
+    return (
+        <React.Fragment>
+            <div className="py-5">
+                <div className="container">
+                    <Title name="our" title="products">
+                        {" "}
+                    </Title>
+                    <div className="row">
+                        {() => {
+                            return products.map(product => {
+                                return (
+                                    <Product key={product.id} product={product}>
+                                        {" "}
+                                    </Product>
+                                );
+                            });
+                        }}
                     </div>
                 </div>
-            </React.Fragment>
-        );
-    }
-}
+            </div>
+        </React.Fragment>
+    );
+};
+export default ProductList;
